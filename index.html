@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+  <title>Infinite Bubble Wrap Deluxe 🫧✨</title>
+  <meta name="description" content="Endless procedural bubble wrap with 5 tactile modes (Classic Plastic, Crunchy Glass, Orchestral Timpani, Laser Pew, and Golden Giant Bubble). Supports 120fps drag-popping, procedural Web Audio synthesis, and infinite scrolling.">
+  <!-- Custom SVG Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='g' cx='35%25' cy='30%25' r='60%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff'/%3E%3Cstop offset='40%25' stop-color='%2367e8f9'/%3E%3Cstop offset='85%25' stop-color='%230284c7'/%3E%3Cstop offset='100%25' stop-color='%230369a1'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='28' fill='url(%23g)' stroke='%2338bdf8' stroke-width='2.5'/%3E%3Cellipse cx='24' cy='20' rx='8' ry='4' fill='%23ffffff' opacity='0.8' transform='rotate(-25 24 20)'/%3E%3Ccircle cx='44' cy='42' r='3.5' fill='%23ffffff' opacity='0.5'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app-container">
+    <!-- Main Interactive Canvas -->
+    <canvas id="bubble-canvas"></canvas>
+
+    <!-- Top Floating HUD Controls -->
+    <header class="hud-top">
+      <div class="brand">
+        <span class="brand-logo">🫧</span>
+        <div class="brand-text">
+          <h1 class="title">BUBBLE WRAP <span class="highlight">DELUXE</span></h1>
+          <p class="subtitle">Endless Procedural ASMR &amp; Physics</p>
+        </div>
+      </div>
+
+      <!-- Mode Selector Pills -->
+      <nav class="mode-selector" aria-label="Tactile Bubble Modes">
+        <button class="mode-btn active" data-mode="classic" title="Classic Plastic ASMR [Key: 1]">
+          <span class="mode-icon">🫧</span>
+          <span class="mode-label">Classic</span>
+        </button>
+        <button class="mode-btn" data-mode="crystal" title="Crunchy Glass & Crystal [Key: 2]">
+          <span class="mode-icon">💎</span>
+          <span class="mode-label">Glass</span>
+        </button>
+        <button class="mode-btn" data-mode="timpani" title="Orchestral Kettle Drum Chimes [Key: 3]">
+          <span class="mode-icon">🥁</span>
+          <span class="mode-label">Timpani</span>
+        </button>
+        <button class="mode-btn" data-mode="laser" title="Retro Sci-Fi Laser Pew [Key: 4]">
+          <span class="mode-icon">🔫</span>
+          <span class="mode-label">Laser Pew</span>
+        </button>
+        <button class="mode-btn" data-mode="gold" title="24K Golden Giant Bubble [Key: 5]">
+          <span class="mode-icon">👑</span>
+          <span class="mode-label">Golden</span>
+        </button>
+      </nav>
+
+      <!-- Action Tools & Settings -->
+      <div class="action-tools">
+        <button id="btn-roller" class="tool-btn special" title="Run the Heavy Steamroller across the screen! [Key: Space]">
+          <span class="tool-icon">🚜</span>
+          <span class="tool-label">Steamroller</span>
+        </button>
+        <button id="btn-god-bubble" class="tool-btn egg" title="Spawn the Legendary Colossal God Bubble [Key: G]">
+          <span class="tool-icon">⚡</span>
+          <span class="tool-label">God Bubble</span>
+        </button>
+        <button id="btn-fresh" class="tool-btn" title="Unroll a fresh intact sheet [Key: R]">
+          <span class="tool-icon">🔄</span>
+          <span class="tool-label">Fresh Roll</span>
+        </button>
+        <button id="btn-audio" class="tool-btn icon-only" title="Toggle Sound [Key: M]" aria-label="Toggle Sound">
+          <span id="audio-icon">🔊</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Bottom Stats & Meter Bar -->
+    <footer class="hud-bottom">
+      <div class="stat-card">
+        <span class="stat-label">POPPED</span>
+        <span id="stat-total" class="stat-value">0</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">SPEED</span>
+        <span id="stat-pps" class="stat-value">0 <small>pps</small></span>
+      </div>
+      <div class="stat-card combo-card">
+        <span class="stat-label">COMBO</span>
+        <span id="stat-combo" class="stat-value combo-val">0x</span>
+        <div id="combo-bar" class="combo-progress"></div>
+      </div>
+      <div class="quick-tips">
+        <span class="tip-badge">💡 Tip</span>
+        <span class="tip-text">Click, tap, or <b>drag rapidly</b> across bubbles to sweep-pop at 120 FPS!</span>
+      </div>
+    </footer>
+
+    <!-- Floating Combo Arcade Feedback Toast -->
+    <div id="combo-toast" class="combo-toast" aria-live="polite"></div>
+
+    <!-- Start / Audio Unlock Banner for Browsers Autoplay Policy -->
+    <div id="audio-banner" class="audio-banner">
+      <div class="banner-content">
+        <span class="banner-pulse">🫧</span>
+        <div class="banner-text">
+          <strong>Click or Drag Anywhere to Pop!</strong>
+          <small>Turn up your volume for synthesized procedural ASMR soundscapes</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+
+<script>window.__BORED_AI_SLUG__="infinite-bubble-wrap-deluxe";</script>
+<script src="report-widget.js"></script>
+</body>
+</html>
